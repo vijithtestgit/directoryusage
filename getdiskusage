@@ -1,0 +1,12 @@
+#!/bin/sh
+
+mount=$1
+
+p1="{"
+p2="\"files\":"
+p3="["
+json=`du -ah $mount | awk '{print "{\"" $2 "\":" $1*1024 "},"}'`
+s1="],"
+s2="}"
+
+echo "$p1\n$p2\n$p3\n$json\n$s1\n$s2"
